@@ -41,15 +41,13 @@ namespace TrabalhoWebFinaLII.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                var produtos = context.Produtos.Find(id);
-                                      
 
-                
-                if (produtos == null)
+                var produto = innerJoinProduto(id);
+                if (produto == null)
                 {
                     return HttpNotFound();
                 }
-                return View(produtos);
+                return View(produto);
             }
             catch (Exception)
             {
@@ -116,25 +114,51 @@ namespace TrabalhoWebFinaLII.Controllers
         }
 
         // GET: Produto/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(long? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var produto = innerJoinProduto(id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produto);
         }
 
         // POST: Produto/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(long id)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                Produto Produto = context.Produtos.Find(id);
+                context.Produtos.Remove(Produto);
+                context.SaveChanges();
+                TempData["Message"] = "Produto" + Produto.Nome.ToUpper() + "foi removida";
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
+        }
+        
+        private Produto innerJoinProduto(long? id)
+        {
+            IQueryable<Produto> produto = context.Produtos.Where(p => p.ProdutoId == id);
+
+            produto = produto.Include(l => l.Loja).Include(f => f.Fornecedor);
+
+            if (produto == null)
+            {
+                return null;
+            }
+            return produto.FirstOrDefault();
+
         }
     }
 }
