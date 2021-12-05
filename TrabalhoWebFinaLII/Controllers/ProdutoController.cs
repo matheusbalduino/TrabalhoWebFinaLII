@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrabalhoWebFinaLII.Context;
+using TrabalhoWebFinaLII.Models;
 
 namespace TrabalhoWebFinaLII.Controllers
 {
@@ -13,7 +15,9 @@ namespace TrabalhoWebFinaLII.Controllers
         // GET: Produto
         public ActionResult Index()
         {
-            return View(context.Produtos.OrderBy(context => context.Nome));
+            return View(context.Produtos.OrderBy(context => context.Nome)
+                                        .Include(l => l.Loja.NomeLoja)
+                                        .Include(f => f.Fornecedor.NomeFornecedor));
         }
 
         // GET: Produto/Details/5
@@ -28,9 +32,9 @@ namespace TrabalhoWebFinaLII.Controllers
             try
             {
                 ViewBag.LojaId = new SelectList(context.Lojas.OrderBy(L => L.NomeLoja),
-              "Loja", "Nome");
+              "LojaId", "NomeLoja");
                 ViewBag.FornecedorId = new SelectList(context.Fornecedores.OrderBy(f => f.NomeFornecedor),
-                    "FornecedorId", "Nome");
+                    "FornecedorId", "NomeFornecedor");
                 return View();
             }
             catch
@@ -41,11 +45,13 @@ namespace TrabalhoWebFinaLII.Controllers
 
         // POST: Produto/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Produto produto)
         {
             try
             {
-                // TODO: Add insert logic here
+
+                context.Produtos.Add(produto);
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
