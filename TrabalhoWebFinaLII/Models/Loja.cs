@@ -15,7 +15,7 @@ namespace TrabalhoWebFinaLII.Models
         public string RazaoSocial { get; set; }
         public string Atividade { get; set; }
 
-
+        public virtual ICollection<Produto> Produtos { get; set; }
 
     }
     public class Fornecedor
@@ -29,7 +29,7 @@ namespace TrabalhoWebFinaLII.Models
         public string Cep { get; set; }
         public string Cidade { get; set; }
 
-
+        public virtual ICollection<Produto> Produtos { get; set; }
 
     }
 

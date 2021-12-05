@@ -1,0 +1,74 @@
+﻿@model TrabalhoWebFinaLII.Models.Loja
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Loja</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeLoja)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NomeLoja)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnpj)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Cnpj)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RazaoSocial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RazaoSocial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Atividade)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Atividade)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LojaId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
