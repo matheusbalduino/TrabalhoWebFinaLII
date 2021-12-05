@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrabalhoWebFinaLII.Context;
+using TrabalhoWebFinaLII.Models;
 
 namespace TrabalhoWebFinaLII.Controllers
 {
@@ -50,12 +52,14 @@ namespace TrabalhoWebFinaLII.Controllers
 
         // POST: Fornecedor/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Fornecedor  fornecedor)
         {
+
             try
             {
                 // TODO: Add insert logic here
-
+                context.Fornecedores.Add(fornecedor);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -65,41 +69,58 @@ namespace TrabalhoWebFinaLII.Controllers
         }
 
         // GET: Fornecedor/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(long? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Fornecedor fornecedor = context.Fornecedores.Find(id);
+            if (fornecedor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(fornecedor);
         }
 
         // POST: Fornecedor/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Fornecedor fornecedor)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                context.Entry(fornecedor).State = EntityState.Modified;
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(fornecedor);
         }
 
         // GET: Fornecedor/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(long? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Fornecedor fornecedor = context.Fornecedores.Find(id);
+            if (fornecedor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(fornecedor);
         }
 
         // POST: Fornecedor/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(long id)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                Fornecedor fornecedor = context.Fornecedores.Find(id);
+                context.Fornecedores.Remove(fornecedor);
+                context.SaveChanges();
+                TempData["Message"] = "fornecedor" + fornecedor.NomeFornecedor.ToUpper() + "foi removida";
                 return RedirectToAction("Index");
             }
             catch

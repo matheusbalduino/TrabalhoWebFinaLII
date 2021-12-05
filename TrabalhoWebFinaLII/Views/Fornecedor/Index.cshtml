@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TrabalhoWebFinaLII.Models.Fornecedor>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeFornecedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QualidadeServico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrazoEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeFornecedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QualidadeServico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrazoEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.FornecedorId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.FornecedorId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.FornecedorId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

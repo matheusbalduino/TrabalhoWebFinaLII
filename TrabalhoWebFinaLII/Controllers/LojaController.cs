@@ -116,7 +116,7 @@ namespace TrabalhoWebFinaLII.Controllers
         // POST: Loja/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(long id)
         {
             try
             {

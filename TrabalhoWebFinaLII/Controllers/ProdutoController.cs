@@ -25,7 +25,18 @@ namespace TrabalhoWebFinaLII.Controllers
         // GET: Produto/Create
         public ActionResult Create()
         {
-            return View();
+            try
+            {
+                ViewBag.LojaId = new SelectList(context.Lojas.OrderBy(L => L.NomeLoja),
+              "Loja", "Nome");
+                ViewBag.FornecedorId = new SelectList(context.Fornecedores.OrderBy(f => f.NomeFornecedor),
+                    "FornecedorId", "Nome");
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // POST: Produto/Create
@@ -34,11 +45,9 @@ namespace TrabalhoWebFinaLII.Controllers
         {
             try
             {
-                ViewBag.LojaId = new SelectList(context.Lojas.OrderBy(L => L.NomeLoja),
-              "Loja", "Nome");
-                ViewBag.FornecedorId = new SelectList(context.Fornecedores.OrderBy(f => f.NomeFornecedor),
-                    "FornecedorId", "Nome");
-                return View();
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
             }
             catch
             {

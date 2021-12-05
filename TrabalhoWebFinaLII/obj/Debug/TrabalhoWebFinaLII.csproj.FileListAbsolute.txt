@@ -179,4 +179,4 @@ C:\Users\Matheus\Documents\REGES\2 semestre\SistemaWebTop\TrabalhoWebFinaLIIBKP1
 C:\Users\Matheus\Documents\REGES\2 semestre\SistemaWebTop\TrabalhoWebFinaLIIBKP1700\TrabalhoWebFinaLII\obj\Debug\TrabalhoWebFinaLII.csproj.CoreCompileInputs.cache
 C:\Users\Matheus\Documents\REGES\2 semestre\SistemaWebTop\TrabalhoWebFinaLIIBKP1700\TrabalhoWebFinaLII\obj\Debug\TrabalhoWebFinaLII.dll
 C:\Users\Matheus\Documents\REGES\2 semestre\SistemaWebTop\TrabalhoWebFinaLIIBKP1700\TrabalhoWebFinaLII\obj\Debug\TrabalhoWebFinaLII.pdb
-C:\Users\Matheus\Documents\REGES\2 semestre\SistemaWebTop\TrabalhoWebFinaLIIBKP1700\TrabalhoWebFinaLII\obj\Debug\TrabalhoWebFinaLII.csproj.AssemblyReference.cache
+C:\Users\Matheus\Documents\REGES\2 semestre\SistemaWebTop\TrabalhoWebFinaLIIBKP1700\TrabalhoWebFinaLII\obj\Debug\TrabalhoWebFinaLII.csproj.CopyComplete
