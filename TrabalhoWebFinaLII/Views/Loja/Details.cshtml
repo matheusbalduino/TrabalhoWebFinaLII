@@ -1,7 +1,8 @@
 ﻿@model TrabalhoWebFinaLII.Models.Loja
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detalhes da Loja";
 }
 
 <!DOCTYPE html>
@@ -19,51 +20,51 @@
             <dt>
                 @Html.DisplayNameFor(model => model.NomeLoja)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.NomeLoja)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Descricao)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Descricao)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Cnpj)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Cnpj)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Telefone)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Telefone)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.RazaoSocial)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.RazaoSocial)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Atividade)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Atividade)
             </dd>
-    
+
         </dl>
     </div>
     <p>
