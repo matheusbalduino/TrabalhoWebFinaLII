@@ -1,23 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TrabalhoWebFinaLII.Context;
 
 namespace TrabalhoWebFinaLII.Controllers
 {
     public class FornecedorController : Controller
     {
+        private EFContext context = new EFContext();
         // GET: Fornecedor
         public ActionResult Index()
         {
-            return View();
+            {
+                return View(context.Fornecedores.OrderBy(c => c.NomeFornecedor));
+            }
         }
 
         // GET: Fornecedor/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(long? id)
         {
-            return View();
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var fornecedor = context.Fornecedores.Find(id);
+                if (fornecedor == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(fornecedor);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         // GET: Fornecedor/Create
