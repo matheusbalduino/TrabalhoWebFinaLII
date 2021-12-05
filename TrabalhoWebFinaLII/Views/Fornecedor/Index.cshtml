@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<TrabalhoWebFinaLII.Models.Fornecedor>
 
-@{
-    Layout = null;
-}
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cadastro de Novo Fornecedor";
+}
 <!DOCTYPE html>
 
 <html>
@@ -40,38 +41,39 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeFornecedor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QualidadeServico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrazoEntrega)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.FornecedorId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.FornecedorId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.FornecedorId })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeFornecedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QualidadeServico)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrazoEntrega)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FornecedorId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.FornecedorId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FornecedorId })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

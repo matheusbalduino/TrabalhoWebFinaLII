@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrabalhoWebFinaLII.Context;
@@ -15,15 +16,46 @@ namespace TrabalhoWebFinaLII.Controllers
         // GET: Produto
         public ActionResult Index()
         {
-            return View(context.Produtos.OrderBy(context => context.Nome)
-                                        .Include(l => l.Loja.NomeLoja)
-                                        .Include(f => f.Fornecedor.NomeFornecedor));
+            try
+            {
+                IQueryable<Produto> produtos = context.Produtos.OrderBy(context => context.Nome)
+                                       .Include(l => l.Loja)
+                                       .Include(f => f.Fornecedor);
+                
+                return View(produtos.ToList());
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         // GET: Produto/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(long? id)
         {
-            return View();
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var produtos = context.Produtos.Find(id);
+                                      
+
+                
+                if (produtos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(produtos);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         // GET: Produto/Create
