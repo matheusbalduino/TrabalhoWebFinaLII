@@ -1,19 +1,17 @@
 ﻿@model TrabalhoWebFinaLII.Models.Loja
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Deletar Loja";
-}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Excluir Loja"; }
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>Excluir Excluir</title>
 </head>
 <body>
-    <h3>Are you sure you want to delete this?</h3>
+    <h3>Tem certeza que gostaria de Excluir esta LOJA?</h3>
     <div>
         <h4>Loja</h4>
         <hr />
@@ -70,13 +68,12 @@
 
         @using (Html.BeginForm())
         {
-            @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
+                <div class="form-actions no-color">
+                    <input type="submit" value="Excluir" class="btn btn-default" /> |
+                    @Html.ActionLink("Voltar para a lista", "Index")
+                </div>}
     </div>
 </body>
 </html>

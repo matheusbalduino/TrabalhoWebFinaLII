@@ -1,16 +1,14 @@
 ﻿@model TrabalhoWebFinaLII.Models.Loja
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Detalhes da Loja";
-}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Detalhes da Loja"; }
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Detalhes</title>
 </head>
 <body>
     <div>
@@ -68,8 +66,8 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.LojaId }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Editar", "Edit", new { id = Model.LojaId }) |
+        @Html.ActionLink("Voltar para a lista", "Index")
     </p>
 </body>
 </html>

@@ -1,9 +1,7 @@
 ﻿@model TrabalhoWebFinaLII.Models.Fornecedor
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Remover os Fornecedores";
-}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Remover os Fornecedores"; }
 
 <!DOCTYPE html>
 
@@ -13,7 +11,7 @@
     <title>Excluir Fornecedor</title>
 </head>
 <body>
-    <h3>Are you sure you want to delete this?</h3>
+    <h3>Tem certeza que deseja remover este FORNECEDOR?</h3>
     <div>
         <h4>Fornecedor</h4>
         <hr />
@@ -78,13 +76,12 @@
 
         @using (Html.BeginForm())
         {
-            @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Apagar" class="btn btn-default" /> |
-                @Html.ActionLink("Voltar para tela de inicio", "Index")
-            </div>
-        }
+                <div class="form-actions no-color">
+                    <input type="submit" value="Excluir" class="btn btn-default" /> |
+                    @Html.ActionLink("Voltar para a lista", "Index")
+                </div>}
     </div>
 </body>
 </html>

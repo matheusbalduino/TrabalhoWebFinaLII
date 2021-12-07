@@ -1,20 +1,18 @@
 ﻿@model IEnumerable<TrabalhoWebFinaLII.Models.Produto>
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Produto";
-}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Produto"; }
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Inicial</title>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Novo Produto", "Create")
     </p>
     <table class="table">
         <tr>
@@ -32,23 +30,22 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fornecedor.NomeFornecedor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Loja.NomeLoja)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProdutoId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ProdutoId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProdutoId })
-                </td>
-            </tr>
-        }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Fornecedor.NomeFornecedor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Loja.NomeLoja)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.ProdutoId }) |
+        @Html.ActionLink("Detalhar", "Details", new { id = item.ProdutoId }) |
+        @Html.ActionLink("Excluir", "Delete", new { id = item.ProdutoId })
+    </td>
+</tr>}
 
     </table>
 </body>

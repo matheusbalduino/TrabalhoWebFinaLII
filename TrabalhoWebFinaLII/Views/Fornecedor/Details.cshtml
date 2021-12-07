@@ -1,9 +1,7 @@
 ﻿@model TrabalhoWebFinaLII.Models.Fornecedor
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Detalhes do Fornecedor";
-}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Detalhes do Fornecedor"; }
 
 <!DOCTYPE html>
 
@@ -77,7 +75,7 @@
     </div>
     <p>
         @Html.ActionLink("Edit", "Editar", new { id = Model.FornecedorId })
-        @Html.ActionLink("Voltar para tela de inicio", "Index")
+        @Html.ActionLink("Voltar para a lista", "Index")
     </p>
 </body>
 </html>

@@ -1,21 +1,19 @@
 ﻿@model IEnumerable<TrabalhoWebFinaLII.Models.Loja>
 
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Cadastro de Nova Loja";
-}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Cadastro de Nova Loja"; }
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Inicial</title>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Criar uma nova Loja", "Create")
     </p>
     <table class="table">
         <tr>
@@ -42,32 +40,31 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomeLoja)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cnpj)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RazaoSocial)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Atividade)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.LojaId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.LojaId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.LojaId })
-                </td>
-            </tr>
-        }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NomeLoja)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descricao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cnpj)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RazaoSocial)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Atividade)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.LojaId }) |
+        @Html.ActionLink("Detalhar", "Details", new { id = item.LojaId }) |
+        @Html.ActionLink("Excluir", "Delete", new { id = item.LojaId })
+    </td>
+</tr>}
 
     </table>
 </body>
